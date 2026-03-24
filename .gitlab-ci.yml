@@ -33,6 +33,6 @@ mirror:
     GIT_DEPTH: 0
   script:
     - git checkout -B main
-    - git push --mirror git@github.com:engineering-with-ai/software-typescript-nestjs-typeorm.git
+    - git push --mirror git@github.com:engineering-with-ai/typescript-nestjs-typeorm.git
   only:
     - main
