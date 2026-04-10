@@ -14,7 +14,9 @@ import { startPostgres } from "./fixtures/containers";
 describe("Example Resource", () => {
   test("can create and retrieve example from database via HTTP", async () => {
     // Arrange: Start testcontainer
-    const pg = await startPostgres();
+    const password = process.env.POSTGRES_PASSWORD;
+    if (!password) throw new Error("POSTGRES_PASSWORD not set");
+    const pg = await startPostgres(password);
 
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModuleWithDatabase],
